@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@novu/node": "^0.23.1",
+    "@novu/notification-center": "^0.23.1",
     "@teamhanko/hanko-elements": "^0.9.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

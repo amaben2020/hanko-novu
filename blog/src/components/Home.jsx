@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useUserData } from "../hooks/useUserData";
 import { fetchAllPosts } from "../utils/util";
+import Novu from "./Novu";
 
 const Home = () => {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -31,6 +32,8 @@ const Home = () => {
           <h2>MyBlog</h2>
         </Link>
         <div style={{ display: "flex", alignItems: "center" }}>
+          {/*---👇🏻 Novu component👇🏻---*/}
+          <Novu />
           {user.email ? (
             <Link to="/post/new" className="newPostBtn">
               New Post

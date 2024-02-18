@@ -9,7 +9,6 @@ export const fetchAllPosts = (setLoading, setPosts) => {
 };
 
 export const fetchPostContent = (slug, setLoading, setPost) => {
-  console.log(slug);
   fetch("http://localhost:4000/post/details", {
     method: "POST",
     body: JSON.stringify({ slug }),
@@ -25,4 +24,23 @@ export const fetchPostContent = (slug, setLoading, setPost) => {
       setPost(data?.post);
     })
     .catch((err) => console.error(err));
+};
+
+export const mutateReaction = ({ type, slug, id, setLoading, setMessage }) => {
+  fetch(`http://localhost:4000/post/react?type=${type}&id=${id}`, {
+    method: "POST",
+    body: JSON.stringify({ slug }),
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+  })
+    .then((res) => {
+      setLoading(true);
+      res.json(res);
+    })
+    .then((res) => {
+      setMessage(res);
+      setLoading(false);
+    });
 };
